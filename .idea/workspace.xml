@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2119ace1-a19d-4448-a650-95f314b0fd49" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/admin/AdminApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/admin/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/admin/AdminLogin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/admin/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/daoManager/CreateConnexionTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/daoManager/DatabaseConnector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/dashboard/DashboardApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/dashboard/DashboardControleur.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/login/LoginApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/login/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/model/SaveCSVToH2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/model/TxtToCsvConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/admin-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/coil2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/coilvision_2/image/arcelor_mital.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/coilvision_2/image/background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/coilvision_2/image/coil2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/coilvision_2/image/header_animation-notext.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/coilvision_2/image/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/white_logo.png" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="JavaFXApplication" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2NVtUrcxEFpJEjeza2tZGjvpaFS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Developpement/CoilVision_2/src/main/resources",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Developpement\CoilVision_2\src\main\resources" />
+      <recent name="C:\Developpement\CoilVision_2\src\main\resources\com\example\coilvision_2" />
+      <recent name="C:\Developpement\CoilVision_2\src\main\java\com\example\coilvision_2" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Developpement\CoilVision_2\src\main\resources" />
+      <recent name="C:\Developpement\CoilVision_2\src\main\resources\com.example.coilvision_2" />
+      <recent name="C:\Developpement\CoilVision_2\src\main\resources\com\example\coilvision_2" />
+      <recent name="C:\Developpement\CoilVision_2\src\main\java\com\example\coilvision_2\admin" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.coilvision_2" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.coilvision_2.login" />
+      <recent name="com.example.coilvision_2.dashboard" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.AdminApplication">
+    <configuration name="AdminApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.coilvision_2.admin.AdminApplication" />
+      <module name="CoilVision_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.coilvision_2.admin.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DashboardApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.coilvision_2.dashboard.DashboardApplication" />
+      <module name="CoilVision_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.coilvision_2.dashboard.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DatabaseConnector" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.coilvision_2.daoManager.DatabaseConnector" />
+      <module name="CoilVision_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.coilvision_2.daoManager.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.coilvision_2.login.LoginApplication" />
+      <module name="CoilVision_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.coilvision_2.daoManager.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="h2-2.1.214.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/lib/h2-2.1.214.jar" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AdminApplication" />
+        <item itemvalue="Application.DashboardApplication" />
+        <item itemvalue="JAR Application.h2-2.1.214.jar" />
+        <item itemvalue="Application.LoginApplication" />
+        <item itemvalue="Application.DatabaseConnector" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2119ace1-a19d-4448-a650-95f314b0fd49" name="Changes" comment="" />
+      <created>1679761097343</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679761097343</updated>
+      <workItem from="1679761098556" duration="4083000" />
+      <workItem from="1679767177229" duration="5167000" />
+      <workItem from="1679831661394" duration="21413000" />
+      <workItem from="1679900814928" duration="4312000" />
+      <workItem from="1679911532662" duration="92000" />
+      <workItem from="1679911805082" duration="575000" />
+      <workItem from="1679914172357" duration="3343000" />
+      <workItem from="1679929829952" duration="1532000" />
+      <workItem from="1679931453738" duration="185000" />
+      <workItem from="1680337270426" duration="11801000" />
+      <workItem from="1680517458363" duration="989000" />
+      <workItem from="1680530644339" duration="1654000" />
+      <workItem from="1680533711550" duration="9337000" />
+      <workItem from="1680897091916" duration="5378000" />
+      <workItem from="1681035884394" duration="1028000" />
+      <workItem from="1681200877847" duration="37837000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
