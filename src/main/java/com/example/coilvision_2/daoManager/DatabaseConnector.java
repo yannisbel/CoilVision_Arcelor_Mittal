@@ -1,5 +1,7 @@
 package com.example.coilvision_2.daoManager;
 
+import javafx.scene.chart.XYChart;
+
 import java.io.*;
 import java.sql.*;
 
@@ -97,7 +99,6 @@ SELECT 1, EnThick, ExThick, EnTens, ExTens, Diameter, YoungModulus, AverageSigma
     }
 
 
-
     public void drop_table(String table) throws SQLException {
         String s = "DROP TABLE IF EXISTS "+table+";";
         Statement statement = connection.createStatement();
@@ -160,6 +161,47 @@ SELECT 1, EnThick, ExThick, EnTens, ExTens, Diameter, YoungModulus, AverageSigma
         }
     }
 
+    public static void csv_data_in_F3(String url, String table) throws SQLException {
+        List<String[]> csvData = readCsv(url);
+        int n = csvData.size();
+        System.out.println("taille du CSV : " + n);
+        int i;
+
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection("jdbc:h2:~/test", "username", "password");
+
+            for (i = 0; i < n; i++) {
+                String[] values = csvData.get(i);
+                int length = csvData.get(i).length;
+
+                String sql = "INSERT INTO " + table + " (Lp, MatID, xTime, xLoc, EnThick, ExThick, EnTens, ExTens, RollForce, FSlip, Diameter, RolledLengthWorkRolls, youngModulus, BackupRollDiameter, RolledLengthBackupRolls, mu, torque, averageSigma, inputError, LubWFlUp, LubWFlLo, LubOilFlUp, LubOilFlLo, WorkRollSpeed) " +
+                        "VALUES (";
+
+                sql += Integer.parseInt(values[0].trim()); // Lp en entier
+                sql += ", ";
+                sql += Integer.parseInt(values[1].trim()); // MatID en entier
+
+                for (int j = 2; j < length; j++) {
+                    sql += ", ";
+                    sql += Double.parseDouble(values[j].trim());
+                }
+
+                sql += ");";
+
+                Statement statement = connection.createStatement();
+                statement.execute(sql);
+                connection.commit();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null) {
+                connection.close();
+            }
+        }
+    }
+
     public static void create_selected_column_table(String table) throws SQLException {
         String s = "CREATE TABLE "+ table + " (\n" +
                 "    Cas INT,\n" +
@@ -179,8 +221,16 @@ SELECT 1, EnThick, ExThick, EnTens, ExTens, Diameter, YoungModulus, AverageSigma
         connection.commit();
     }
 
-    public static void filling_data_in_orowan(String table) throws SQLException {
+    public static void filling_data_in2_orowan(String table) throws SQLException {
         String s = "INSERT INTO DATA_IN2_OROWAN (Cas, He, Hs, Te, Ts, Diam_WR, WRyoung, offset_value, mu_ini, Force, G)\n" +
+                "SELECT 1, EnThick, ExThick, EnTens, ExTens, Diameter, YoungModulus, AverageSigma, Mu, RollForce, FSlip FROM "+ table +";\n";
+        Statement statement = connection.createStatement();
+        statement.execute(s);
+        connection.commit();
+    }
+
+    public static void filling_data_in3_orowan(String table) throws SQLException {
+        String s = "INSERT INTO DATA_IN3_OROWAN (Cas, He, Hs, Te, Ts, Diam_WR, WRyoung, offset_value, mu_ini, Force, G)\n" +
                 "SELECT 1, EnThick, ExThick, EnTens, ExTens, Diameter, YoungModulus, AverageSigma, Mu, RollForce, FSlip FROM "+ table +";\n";
         Statement statement = connection.createStatement();
         statement.execute(s);
@@ -191,25 +241,58 @@ SELECT 1, EnThick, ExThick, EnTens, ExTens, Diameter, YoungModulus, AverageSigma
         try {DatabaseConnector db = new DatabaseConnector();
             db.drop_table("DATA_IN2");
             db.drop_table("DATA_IN2_OROWAN");
+            db.drop_table("DATA_IN3");
+            db.drop_table("DATA_IN3_OROWAN");
             db.createTableDataInF2("DATA_IN2");
             DatabaseConnector.csv_data_in_F2("src/main/java/com/example/Fichiers/Krakov/csv_in/1939351_F2.csv", "DATA_IN2");
+            db.createTableDataInF2("DATA_IN3");
+            DatabaseConnector.csv_data_in_F3("src/main/java/com/example/Fichiers/Krakov/csv_in/1939351_F3.csv", "DATA_IN3");
             DatabaseConnector.create_selected_column_table("DATA_IN2_OROWAN");
-            DatabaseConnector.filling_data_in_orowan("DATA_IN2");
+            DatabaseConnector.filling_data_in2_orowan("DATA_IN2");
+            DatabaseConnector.create_selected_column_table("DATA_IN3_OROWAN");
+            DatabaseConnector.filling_data_in3_orowan("DATA_IN3");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static void export_dataIn_from_h2() throws SQLException {
+    public static void export_dataIn2_from_h2() throws SQLException {
         String s = "CALL CSVWRITE('src\\main\\java\\com\\example\\Fichiers\\Model\\inv_cst_data2.csv',  'SELECT * FROM DATA_IN2_OROWAN',  'charset=UTF-8 fieldSeparator=; fieldDelimiter=');";
         Statement statement = connection.createStatement();
         statement.execute(s);
         connection.commit();
     }
 
-    public static void CsvToTxtConverter() {
+    public static void export_dataIn3_from_h2() throws SQLException {
+        String s = "CALL CSVWRITE('src\\main\\java\\com\\example\\Fichiers\\Model\\inv_cst_data3.csv',  'SELECT * FROM DATA_IN3_OROWAN',  'charset=UTF-8 fieldSeparator=; fieldDelimiter=');";
+        Statement statement = connection.createStatement();
+        statement.execute(s);
+        connection.commit();
+    }
+
+    public static void CsvToTxtConverter2() {
         String csvFilePath = "src/main/java/com/example/Fichiers/Model/inv_cst_data2.csv";
         String txtFilePath = "src/main/java/com/example/Fichiers/Model/inv_cst_data2.txt";
+        File csvFile = new File(csvFilePath);
+        File txtFile = new File(txtFilePath);
+
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile));
+             BufferedWriter bw = new BufferedWriter(new FileWriter(txtFile))) {
+
+            String line;
+            while ((line = br.readLine()) != null) {
+                // Remplacez les virgules par des tabulations pour chaque ligne
+                line = line.replace(";", "\t");
+                bw.write(line + "\n"); // Écriture de chaque ligne dans le fichier txt
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void CsvToTxtConverter3() {
+        String csvFilePath = "src/main/java/com/example/Fichiers/Model/inv_cst_data3.csv";
+        String txtFilePath = "src/main/java/com/example/Fichiers/Model/inv_cst_data3.txt";
         File csvFile = new File(csvFilePath);
         File txtFile = new File(txtFilePath);
 
@@ -292,15 +375,15 @@ SELECT 1, EnThick, ExThick, EnTens, ExTens, Diameter, YoungModulus, AverageSigma
         }
     }
 
-    /*
+
 
     public static void callExecutable() throws IOException, InterruptedException {
 
-        String entryFileName = "src/main/java/com/example/Fichiers/Model/inv_cst_data2.txt";
-        String exitFileName = "src/main/java/com/example/Fichiers/Model/output_data2.txt";
+        String entryFileName = "inv_cst_data2.txt";
+        String exitFileName = "youpi.txt";
 
         String[] cmd = {
-                "src/main/java/com/example/Fichiers/Model/Orowan_x64.exe",
+                "C:\\Developpement\\CoilVision_2\\src\\main\\java\\com\\example\\Fichiers\\Model\\Orowan_x64.exe.exe",
                 "i",
                 "c",
                 entryFileName,
@@ -323,13 +406,44 @@ SELECT 1, EnThick, ExThick, EnTens, ExTens, Diameter, YoungModulus, AverageSigma
         }
     }
 
-     */
+    public static void callExecutableWithInput() throws IOException {
+        String[] cmd = {"C:\\Developpement\\CoilVision_2\\src\\main\\java\\com\\example\\Fichiers\\Model\\Orowan_x64.exe.exe"};
 
-    public static List<Double> getDataFromH2_Friction() throws SQLException {
+        Process process = new ProcessBuilder(cmd).start();
+        try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(process.getOutputStream()))) {
+            // Ecrire les entrées souhaitées dans la console de l'exécutable
+            writer.write("i\n");
+            writer.write("c\n");
+            writer.write("inv_cst_data2.txt\n");
+            writer.write("youpi.txt\n");
+        }
+
+        // Récupérer la sortie de l'exécutable
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // Traiter la sortie
+                System.out.println(line);
+            }
+        }
+
+        // Attendre la fin de l'exécution de l'exécutable
+        try {
+            int exitCode = process.waitFor();
+            System.out.println("Code de sortie : " + exitCode);
+        } catch (InterruptedException e) {
+            System.err.println("L'exécution de l'exécutable a été interrompue.");
+            Thread.currentThread().interrupt();
+        }
+    }
+
+
+
+    public static List<Double> getDataFromH2_Friction(int a) throws SQLException {
 
         // Exécution de la requête pour récupérer les données de la table DATA_OUT_OROWAN
         Statement stmt = connection.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT AVG_Friction FROM DATA_OUT_AVG");
+        ResultSet rs = stmt.executeQuery("SELECT AVG_Friction FROM DATA_OUT"+a+"_AVG");
 
         // Récupération des valeurs de la colonne Friction
         List<Double> data = new ArrayList<>();
@@ -345,11 +459,11 @@ SELECT 1, EnThick, ExThick, EnTens, ExTens, Diameter, YoungModulus, AverageSigma
         return data;
     }
 
-    public static List<Double> getDataFromH2_RollSpeed() throws SQLException {
+    public static List<Double> getDataFromH2_RollSpeed(int a) throws SQLException {
 
         // Exécution de la requête pour récupérer les données de la table DATA_OUT_OROWAN
         Statement stmt = connection.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT avg_roll_speed FROM DATA_OUT_AVG");
+        ResultSet rs = stmt.executeQuery("SELECT avg_roll_speed FROM DATA_OUT"+a+"_AVG");
 
         // Récupération des valeurs de la colonne Friction
         List<Double> data = new ArrayList<>();
@@ -365,11 +479,11 @@ SELECT 1, EnThick, ExThick, EnTens, ExTens, Diameter, YoungModulus, AverageSigma
         return data;
     }
 
-    public static List<Double> getDataFromH2_Sigma() throws SQLException {
+    public static List<Double> getDataFromH2_Sigma(int a) throws SQLException {
 
         // Exécution de la requête pour récupérer les données de la table DATA_OUT_OROWAN
         Statement stmt = connection.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT avg_sigma FROM DATA_OUT_AVG");
+        ResultSet rs = stmt.executeQuery("SELECT avg_sigma FROM DATA_OUT"+a+"_AVG");
 
         // Récupération des valeurs de la colonne Friction
         List<Double> data = new ArrayList<>();
@@ -385,9 +499,9 @@ SELECT 1, EnThick, ExThick, EnTens, ExTens, Diameter, YoungModulus, AverageSigma
         return data;
     }
 
-    public void create_avg_table() throws SQLException {
+    public void create_avg_table(String table) throws SQLException {
         // Requête SQL pour créer la table DATA_OUT_AVG
-        String createTableSql = "CREATE TABLE DATA_OUT_AVG (" +
+        String createTableSql = "CREATE TABLE "+table+" (" +
                 "id INT AUTO_INCREMENT PRIMARY KEY," +
                 "avg_friction FLOAT," +
                 "avg_roll_speed FLOAT," +
@@ -400,13 +514,13 @@ SELECT 1, EnThick, ExThick, EnTens, ExTens, Diameter, YoungModulus, AverageSigma
         connection.commit();
     }
 
-    public void compute_avg_data() {
+    public void compute_avg_data(int n) {
 
         // Requête SQL pour sélectionner les données de la table DATA_OUT_OROWAN
-        String selectDataSql = "SELECT Friction, ROLLING_TORQUE, SIGMA_MOY FROM DATA_OUT_OROWAN";
+        String selectDataSql = "SELECT Friction, ROLLING_TORQUE, SIGMA_MOY FROM DATA_OUT"+n+"_OROWAN";
 
         // Requête SQL pour insérer les données dans la table DATA_OUT_AVG
-        String insertDataSql = "INSERT INTO DATA_OUT_AVG (avg_friction, avg_roll_speed, avg_sigma, time) VALUES (?, ?, ?, ?)";
+        String insertDataSql = "INSERT INTO DATA_OUT"+n+"_AVG (avg_friction, avg_roll_speed, avg_sigma, time) VALUES (?, ?, ?, ?)";
 
         try (PreparedStatement selectDataStatement = connection.prepareStatement(selectDataSql);
              PreparedStatement insertDataStatement = connection.prepareStatement(insertDataSql)) {
@@ -453,14 +567,88 @@ SELECT 1, EnThick, ExThick, EnTens, ExTens, Diameter, YoungModulus, AverageSigma
 
 
     public static void execute_computing() throws SQLException {
-        DatabaseConnector.export_dataIn_from_h2();
-        DatabaseConnector.CsvToTxtConverter();
+        DatabaseConnector.export_dataIn2_from_h2();
+        DatabaseConnector.CsvToTxtConverter2();
+        DatabaseConnector.export_dataIn3_from_h2();
+        DatabaseConnector.CsvToTxtConverter3();
     }
 
-    public static void main(String[] args) throws SQLException {
-        DatabaseConnector db = new DatabaseConnector();
-        db.create_avg_table();
-        db.compute_avg_data();
+    public static void createDashboardTable() throws SQLException {
+
+        String sql = "CREATE TABLE DASHBOARD (" +
+                "LOGIN VARCHAR(50) NOT NULL, " +
+                "NUM_F INT DEFAULT 1, " +
+                "IS_READ BOOL DEFAULT FALSE, " +
+                "TEXT_OBJECT TEXT, " +
+                "REPORT TEXT, " +
+                "REPORT_NUMBER INT, " +
+                "GRAPH_NUMBER INT AUTO_INCREMENT " +
+                ")";
+
+        try (Statement stmt = connection.createStatement()) {
+            stmt.executeUpdate(sql);
+            System.out.println("Table DASHBOARD created successfully.");
+        } catch (SQLException e) {
+            System.err.println("Error creating table DASHBOARD: " + e.getMessage());
+            throw e;
+        }
     }
+
+    public static void deleteDashboardRow(String text_obj) throws SQLException {
+        String sql = "DELETE FROM DASHBOARD WHERE TEXT_OBJECT = ?";
+        DatabaseConnector db = new DatabaseConnector();
+        Connection conn = db.getConnection();
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, text_obj);
+            int rowsDeleted = stmt.executeUpdate();
+            if (rowsDeleted == 1) {
+                System.out.println("Row with login " + text_obj + " deleted successfully.");
+            } else {
+                System.out.println("No rows with login " + text_obj + " found.");
+            }
+        } catch (SQLException e) {
+            System.err.println("Error deleting row with login " + text_obj + ": " + e.getMessage());
+            throw e;
+        }
+    }
+
+    public void fillDashboardFromConnexion() {
+        try {
+            // Connecter à la base de données
+
+            // Créer une requête pour sélectionner les utilisateurs ayant un privilège de 1
+            String selectUsersQuery = "SELECT LOGIN FROM CONNEXION WHERE PRIVILEGE = 1";
+
+            // Exécuter la requête et récupérer le résultat dans un ResultSet
+            Statement selectUsersStatement = connection.createStatement();
+            ResultSet selectUsersResult = selectUsersStatement.executeQuery(selectUsersQuery);
+
+            // Parcourir les résultats et insérer des lignes dans la table DASHBOARD pour chaque utilisateur
+            String insertDashboardQuery = "INSERT INTO DASHBOARD (LOGIN) VALUES (?)";
+            PreparedStatement insertDashboardStatement = connection.prepareStatement(insertDashboardQuery);
+            while (selectUsersResult.next()) {
+                String login = selectUsersResult.getString("LOGIN");
+                insertDashboardStatement.setString(1, login);
+                insertDashboardStatement.executeUpdate();
+            }
+
+            // Fermer les connexions
+            insertDashboardStatement.close();
+            selectUsersStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) throws SQLException, IOException, InterruptedException {
+        DatabaseConnector db = new DatabaseConnector();
+        //callExecutable();
+        db.execute_computing();
+        db.create_avg_table("DATA_OUT2_AVG");
+        db.compute_avg_data(2);
+    }
+
+
 
 }

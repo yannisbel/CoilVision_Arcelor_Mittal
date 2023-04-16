@@ -2,6 +2,8 @@ package com.example.coilvision_2.login;
 
 import com.example.coilvision_2.daoManager.DatabaseConnector;
 import com.example.coilvision_2.dashboard.DashboardApplication;
+import com.example.coilvision_2.dashboard.DashboardControleur;
+import com.example.coilvision_2.engineer.EngineerApplication;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -82,10 +84,11 @@ public class LoginController implements EventHandler<ActionEvent> {
             String password = this.l2.getText();
             int privilege = connector.checkUser(username, password);
             this.privilege = privilege;
-            if (privilege != -1) {
+            if (privilege == 1) {
                 System.out.println("User authenticated, privilege level: " + privilege);
                 DashboardApplication dashboardApplication = new DashboardApplication();
                 dashboardApplication.setPrivilege(privilege);
+                dashboardApplication.setLogin_dash(username);
                 try {
                     // Call the start method to launch the Dashboard window
                     DatabaseConnector.filling_h2_database();
@@ -93,7 +96,21 @@ public class LoginController implements EventHandler<ActionEvent> {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            } else {
+            }
+            if (privilege == 2) {
+                System.out.println("User authenticated, privilege level: " + privilege);
+                EngineerApplication engineerApplication = new EngineerApplication();
+                engineerApplication.setPrivilege(String.valueOf(privilege));
+                engineerApplication.setUser(username);
+                try {
+                    // Call the start method to launch the Dashboard window
+                    DatabaseConnector.filling_h2_database();
+                    engineerApplication.start(new Stage());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (privilege == -1) {
                 System.out.println("User not found or invalid password");
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Attention");

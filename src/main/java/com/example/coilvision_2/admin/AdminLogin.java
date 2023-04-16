@@ -191,7 +191,7 @@ public class AdminLogin extends Application {
                 // Ouvrir la page du tableau de bord de l'application
                 AdminApplication admin = new AdminApplication();
                 try {
-                    admin.setUsername(String.valueOf(this.usernameTextField));
+                    admin.setUsername(String.valueOf(this.usernameTextField.getText()));
                     admin.start(new Stage());
                 } catch (Exception e) {
                     throw new RuntimeException(e);

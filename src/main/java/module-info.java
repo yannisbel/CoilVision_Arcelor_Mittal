@@ -15,4 +15,5 @@ module com.example.coilvision_2 {
     exports com.example.coilvision_2.admin;
     exports com.example.coilvision_2.daoManager;
     opens com.example.coilvision_2.daoManager to javafx.fxml;
+    exports com.example.coilvision_2.engineer;
 }

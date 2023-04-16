@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2119ace1-a19d-4448-a650-95f314b0fd49" name="Changes" comment="First Commit" />
+    <list default="true" id="2119ace1-a19d-4448-a650-95f314b0fd49" name="Changes" comment="Final Project">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/CoilVision_2_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/engineer/DashboardData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/engineer/EngineerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/admin/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/admin/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/admin/AdminLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/admin/AdminLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/daoManager/CreateConnexionTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/daoManager/CreateConnexionTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/daoManager/DatabaseConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/daoManager/DatabaseConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/dashboard/DashboardApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/dashboard/DashboardApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/dashboard/DashboardControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/dashboard/DashboardControleur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/login/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/model/SaveCSVToH2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/model/SaveCSVToH2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/model/TxtToCsvConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/coilvision_2/model/TxtToCsvConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/coilvision_2/image/background.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/background.jpg" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +34,7 @@
         <option value="FxmlFile" />
         <option value="JavaFXApplication" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -31,19 +50,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Developpement/CoilVision_2/src/main/resources",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Developpement/Soutenance/CoilVision_6_test_vf&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;h2&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Developpement\CoilVision_2\src\main\resources" />
@@ -64,7 +90,7 @@
       <recent name="com.example.coilvision_2.dashboard" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AdminApplication">
+  <component name="RunManager" selected="JAR Application.h2-2.1.214.jar">
     <configuration name="AdminApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.coilvision_2.admin.AdminApplication" />
       <module name="CoilVision_2" />
@@ -91,12 +117,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DatabaseConnector" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.coilvision_2.daoManager.DatabaseConnector" />
+    <configuration name="EngineerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.coilvision_2.engineer.EngineerApplication" />
       <module name="CoilVision_2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.coilvision_2.daoManager.*" />
+          <option name="PATTERN" value="com.example.coilvision_2.engineer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -109,7 +135,7 @@
       <module name="CoilVision_2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.coilvision_2.daoManager.*" />
+          <option name="PATTERN" value="com.example.coilvision_2.login.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -123,11 +149,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AdminApplication" />
-        <item itemvalue="Application.DashboardApplication" />
         <item itemvalue="JAR Application.h2-2.1.214.jar" />
         <item itemvalue="Application.LoginApplication" />
-        <item itemvalue="Application.DatabaseConnector" />
+        <item itemvalue="Application.AdminApplication" />
+        <item itemvalue="Application.DashboardApplication" />
+        <item itemvalue="Application.EngineerApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -154,7 +180,21 @@
       <workItem from="1680533711550" duration="9337000" />
       <workItem from="1680897091916" duration="5378000" />
       <workItem from="1681035884394" duration="1028000" />
-      <workItem from="1681200877847" duration="38188000" />
+      <workItem from="1681200877847" duration="46655000" />
+      <workItem from="1681304021027" duration="1437000" />
+      <workItem from="1681305617503" duration="1643000" />
+      <workItem from="1681307601507" duration="1443000" />
+      <workItem from="1681309149890" duration="36558000" />
+      <workItem from="1681420978123" duration="111000" />
+      <workItem from="1681421992183" duration="78000" />
+      <workItem from="1681422671878" duration="403000" />
+      <workItem from="1681423199022" duration="101000" />
+      <workItem from="1681423577187" duration="963000" />
+      <workItem from="1681425081801" duration="338000" />
+      <workItem from="1681425601664" duration="794000" />
+      <workItem from="1681455666521" duration="10403000" />
+      <workItem from="1681474821159" duration="1538000" />
+      <workItem from="1681665873956" duration="338000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit">
       <created>1681287336797</created>
@@ -163,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681287336797</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Second Commit">
+      <created>1681287694149</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681287694149</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +229,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="First Commit" />
+    <MESSAGE value="Second Commit" />
+    <MESSAGE value="Final Project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final Project" />
   </component>
 </project>

@@ -1,5 +1,6 @@
 package com.example.coilvision_2.admin;
 
+import com.example.coilvision_2.daoManager.DatabaseConnector;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -86,6 +87,12 @@ public class AdminController {
             pstmt.setString(1, login);
             pstmt.executeUpdate();
             pstmt.close();
+
+            String sql2 = "DELETE FROM DASHBOARD WHERE LOGIN=?";
+            PreparedStatement pstmt2 = conn.prepareStatement(sql2);
+            pstmt2.setString(1, login);
+            pstmt2.executeUpdate();
+            pstmt2.close();
 
             // SELECT user list after removing user
             ObservableList<User> userList = FXCollections.observableArrayList();

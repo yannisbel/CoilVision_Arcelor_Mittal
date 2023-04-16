@@ -79,14 +79,19 @@ public class TxtToCsvConverter {
     public static void main(String[] args) {
 
         String inputFilePath2  = "src/main/java/com/example/Fichiers/Krakov/1939351_F2";
-        String inputFilePathout  = "src/main/java/com/example/Fichiers/Model/output2";
+        String inputFilePathout2  = "src/main/java/com/example/Fichiers/Model/output2";
+        String inputFilePathout3  = "src/main/java/com/example/Fichiers/Model/output3";
 
         try {
             Txt_to_csv2(inputFilePath2);
-            Txt_to_csv_out(inputFilePathout);
+            Txt_to_csv_out(inputFilePathout2);
+            Txt_to_csv_out(inputFilePathout3);
+
             } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
 
     }
 }
+
+//Modèles producteurs - écrivains : parallélisme

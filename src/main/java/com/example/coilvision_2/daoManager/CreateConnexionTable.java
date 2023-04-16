@@ -17,7 +17,7 @@ public class CreateConnexionTable {
     private static final String INSERT_QUERY =
             "INSERT INTO CONNEXION (CATEGORIE, PRIVILEGE, LOGIN, PASSWORD) VALUES (?, ?, ?, ?)";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         try {
             // Charger le driver JDBC
             Class.forName("org.h2.Driver");
@@ -55,5 +55,7 @@ public class CreateConnexionTable {
             System.err.println("Erreur SQL : " + e.getMessage());
             e.printStackTrace();
         }
+        DatabaseConnector db = new DatabaseConnector();
+        db.createDashboardTable();
     }
 }
