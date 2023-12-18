@@ -1,6 +1,6 @@
 # ArcelorMittal : CoilVision 
 
-![Arcelor_Mittal](CoilVision_Arcelor_Mittal/Screenshot_CoilVision.png)
+![Arcelor_Mittal](Screenshot_CoilVision.png)
 
 ## **1. About this project**
 
