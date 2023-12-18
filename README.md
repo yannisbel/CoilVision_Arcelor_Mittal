@@ -1,33 +1,30 @@
 # ArcelorMittal : CoilVision 
 
-![Arcelor_Mittal](Screenshot_CoilVision.png)
+
+<div id="description" align = "center">
+  <img src="Screenshot_CoilVision.png" width="500">
+</div>
 
 ## **1. About this project**
 
 Everything is explained in our different files within the *Reports* folder. However everything is written in French. To simplify and summarize our project, feel free to read this README!
 
-Here are the details of each file: 
-
-  - **'Specifications'** is simply the **introduction to the subject**. It explains where such a project comes from and what it will be used for
-  - **'DeisgnFile'** allows external people to **understand the application** that has been developed, its components and all the relationships
-  - **'UserGuide'** is simply a **notice** that allows the user to **take over and use the application**.
-
 This project was done in a school context with three other classmates.
 
 ## **2. The context**
 
-ArcelorMittal is a **leader among the world's steel groups**, more particularly in production, notably by being the world's leading steel producer in 2018 with nearly *100 million tons* produced. In order to **optimize production** and **improve product quality**, ArcelorMittal proposes the FIRST project in partnership with IMT Mines Alès.
+ArcelorMittal, a global leader in the steel industry, stands out as one of the world's foremost steel groups. In 2018, it claimed the position of the leading steel producer with an impressive production volume of nearly 100 million tons. Seeking to enhance production efficiency and elevate product quality, ArcelorMittal collaborates with IMT Mines Alès on the CoilVision project.
 
-Summarizing the production steps, the process ends with a rolling step during which the input metal blocks are transformed into metal coils after being heated, resized in width and thickness, then cooled to obtain the quality and mechanical properties and finally wound to obtain the desired structure.
+The production process culminates in a critical rolling step, where metal blocks undergo transformation into metal coils. This involves heating, resizing in width and thickness, cooling to achieve desired quality and mechanical properties, and finally, winding to obtain the desired structure.
 
 <div id="process" align = "center">
   <img src="https://user-images.githubusercontent.com/105392989/176406142-c3d0fce8-721c-4c57-b55e-0988d548e073.png" width="900">
 </div>
 
-During this process, the metal may **degrade and show imperfections** on the surface. Once the imperfections appear, it is not possible to **use and sell** the material, so it is discarded or considered defective.   
-In order to limit these degradations, it is **necessary to lubricate correctly and at the right time** the system in order to avoid damaging the metal plates to ensure quality production and material, and thus improve yield.
+Throughout this intricate process, the metal is susceptible to degradation, leading to surface imperfections. Once these imperfections manifest, the material becomes unsuitable for use and sale, resulting in discarding or classification as defective. To mitigate such degradations, it is imperative to apply the correct lubrication at the right time to prevent damage to the metal plates, ensuring quality production, material integrity, and improved yield.
 
-The **CoilVision project** was created to meet this main need.   
-The objective is to **collect a set of data** *(every 200ms)* from sensors and **store them in a database** in order to **calculate** with the help of mathematical models proposed by ArcelorMittal, output values corresponding to **different magnitudes** essential to the optimization of production **including the coefficient of friction** to adjust the lubrication.   
-To make the data understandable and usable for the users *(technicians, administrator)*, it is also necessary to **display the evolution in real time** 
-of the output variables, in particular the coefficient of friction, and **store them once again in a database**.
+The CoilVision project was conceived to address this fundamental requirement. Its primary objective is to continuously gather data from sensors at a rate of every 200 milliseconds and store this information in a database. Utilizing mathematical models provided by ArcelorMittal, the project calculates various crucial output values essential for optimizing production, notably the coefficient of friction used to adjust lubrication levels.
+
+To facilitate comprehension and usability for technicians and administrators, the project also involves real-time visualization of the evolving output variables, especially the coefficient of friction. These visualizations are not only displayed for monitoring purposes but are also stored in a database for future analysis.
+
+In summary, the CoilVision project plays a pivotal role in leveraging data insights to enhance the production process, reduce material wastage, and uphold the quality standards of ArcelorMittal's steel production.
